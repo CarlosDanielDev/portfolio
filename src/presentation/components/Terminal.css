@@ -1,0 +1,185 @@
+.terminal {
+  width: 100%;
+  height: 400px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #1e1e1e;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  font-family: 'Courier New', monospace;
+  margin-bottom: 2rem;
+  border: 1px solid #333;
+}
+
+@media (max-width: 576px) {
+  .terminal {
+    height: 300px;
+  }
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  background-color: #323233;
+  padding: 8px 16px;
+  position: relative;
+}
+
+.terminal-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.terminal-button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.terminal-button.close {
+  background-color: #ff5f56;
+}
+
+.terminal-button.minimize {
+  background-color: #ffbd2e;
+}
+
+.terminal-button.maximize {
+  background-color: #27c93f;
+}
+
+.terminal-title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #999;
+  font-size: 0.8rem;
+}
+
+.terminal-body {
+  height: calc(100% - 36px);
+  padding: 8px;
+  overflow-y: auto;
+  color: #f1f1f1;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 576px) {
+  .terminal-body {
+    font-size: 0.8rem;
+    padding: 6px;
+  }
+}
+
+.terminal-line {
+  margin-bottom: 4px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.terminal-prompt {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.terminal-user {
+  color: #7eda28;
+}
+
+.terminal-at, .terminal-colon {
+  color: #f1f1f1;
+  margin: 0 2px;
+}
+
+.terminal-host {
+  color: #7eda28;
+}
+
+.terminal-path {
+  color: #4878c0;
+  margin-right: 4px;
+}
+
+.terminal-dollar {
+  color: #f1f1f1;
+  margin-right: 8px;
+}
+
+.terminal-command {
+  color: #f1f1f1;
+}
+
+.terminal-output {
+  margin: 0;
+  padding: 4px 0;
+  font-family: 'Courier New', monospace;
+  line-height: 1.4;
+  color: #bbbbbb;
+  width: 100%;
+  overflow-x: auto;
+}
+
+@media (max-width: 576px) {
+  .terminal-output {
+    max-width: 100%; 
+    overflow-x: auto;
+  }
+}
+
+.terminal-input {
+  background: transparent;
+  border: none;
+  color: #f1f1f1;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  outline: none;
+  flex: 1;
+  min-width: 100px;
+}
+
+@media (max-width: 576px) {
+  .terminal-input {
+    font-size: 0.8rem;
+  }
+}
+
+.terminal-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminal-body::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+.terminal-body::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+
+.terminal-body::-webkit-scrollbar-thumb:hover {
+  background: #777;
+}
+
+[data-theme="cyberpunk"] .terminal {
+  border: 1px solid var(--colors-primary);
+  box-shadow: 0 0 10px var(--colors-primary), 0 0 20px var(--colors-secondary);
+}
+
+[data-theme="cyberpunk"] .terminal-header {
+  background: linear-gradient(90deg, var(--colors-primary), var(--colors-secondary));
+}
+
+[data-theme="cyberpunk"] .terminal-user {
+  color: var(--colors-secondary);
+}
+
+[data-theme="cyberpunk"] .terminal-host {
+  color: var(--colors-primary);
+}
+
+[data-theme="cyberpunk"] .terminal-command,
+[data-theme="cyberpunk"] .terminal-input {
+  color: var(--colors-text-primary);
+  text-shadow: 0 0 5px var(--colors-secondary);
+} 
