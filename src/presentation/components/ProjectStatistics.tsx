@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import '@presentation/styles/ProjectStatistics.css';
+import './ProjectStatistics.css';
 
 interface Metric {
   name: string;

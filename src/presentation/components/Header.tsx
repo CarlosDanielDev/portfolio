@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ThemeSwitcher } from '@presentation/components/ThemeSwitcher';
 import { useResponsive } from '@presentation/hooks/useResponsive';
-import '@presentation/styles/Header.css';
+import './Header.css';
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);

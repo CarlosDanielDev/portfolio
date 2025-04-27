@@ -1,5 +1,5 @@
 import { useResponsive } from '@presentation/hooks/useResponsive';
-import '@presentation/styles/ResponsiveInfo.css';
+import './ResponsiveInfo.css';
 
 export function ResponsiveInfo({ show = false }: { show?: boolean }) {
   const { width, height, isMobile, isTablet } = useResponsive();

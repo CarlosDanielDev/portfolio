@@ -1,6 +1,6 @@
 import { usePortfolio } from '@presentation/contexts/PortfolioContext';
 import { SkillLevel } from '@presentation/components/SkillLevel';
-import '@presentation/styles/SkillsList.css';
+import './SkillsList.css';
 
 export function SkillsList() {
   const { selectedCompany, loading, error } = usePortfolio();

@@ -1,5 +1,5 @@
 import { usePortfolio } from '@presentation/contexts/PortfolioContext';
-import '@presentation/styles/CompanyList.css';
+import './CompanyList.css';
 
 export function CompanyList() {
   const { companies, selectedCompany, loading, selectCompany } = usePortfolio();

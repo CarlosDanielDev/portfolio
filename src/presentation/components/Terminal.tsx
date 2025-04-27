@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { usePortfolio } from '@presentation/contexts/PortfolioContext';
-import '@presentation/styles/Terminal.css';
+import './Terminal.css';
 
 interface TerminalOutput {
   id: string;
