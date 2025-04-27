@@ -1,0 +1,209 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1rem 0;
+  background-color: rgba(var(--colors-background), 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.header.scrolled {
+  background-color: var(--colors-background);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 0;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-medium);
+  position: relative;
+}
+
+.header-logo {
+  display: flex;
+  flex-direction: column;
+  z-index: 1001; /* Garantir que o logo fique acima do menu mobile */
+}
+
+.header-logo h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--colors-primary);
+}
+
+.header-tagline {
+  font-size: 0.9rem;
+  color: var(--colors-text-secondary);
+  margin: 0;
+}
+
+/* Ações do header (tema e botão de menu) */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 1001; /* Garantir que as ações fiquem acima do menu mobile */
+}
+
+/* Menu mobile toggle */
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: var(--colors-text-primary);
+}
+
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+}
+
+.hamburger-line {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--colors-text-primary);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Navegação principal */
+.header-nav {
+  flex: 1;
+}
+
+.header-nav-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem;
+  justify-content: flex-end;
+}
+
+.header-nav-link {
+  color: var(--colors-text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.header-nav-link:hover {
+  color: var(--colors-primary);
+}
+
+.header-nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--colors-primary);
+  transition: width 0.3s ease;
+}
+
+.header-nav-link:hover::after {
+  width: 100%;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  /* Mostrar botão de toggle do menu */
+  .mobile-menu-toggle {
+    display: block;
+  }
+  
+  /* Estilizar menu mobile */
+  .header-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--colors-background);
+    padding: 5rem 2rem 2rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+    visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .header-nav.open {
+    transform: translateX(0);
+    visibility: visible;
+  }
+  
+  .header-nav-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+  }
+  
+  .header-nav-item {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .header-nav-link {
+    font-size: 1.25rem;
+    display: block;
+    padding: 0.75rem 0;
+  }
+  
+  /* Animação do botão hamburger para X */
+  .menu-open .hamburger-line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  
+  .menu-open .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menu-open .hamburger-line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .header-logo h1 {
+    font-size: 1.25rem;
+  }
+  
+  .header-tagline {
+    font-size: 0.8rem;
+  }
+}
+
+/* Estilos específicos para o tema Cyberpunk no modo mobile */
+[data-theme="cyberpunk"] .header-nav {
+  box-shadow: inset 0 0 20px var(--colors-primary);
+}
+
+[data-theme="cyberpunk"] .hamburger-line {
+  background-color: var(--colors-secondary);
+  box-shadow: 0 0 5px var(--colors-primary);
+}
+
+[data-theme="cyberpunk"] .header-nav-link:hover {
+  text-shadow: 0 0 8px var(--colors-primary);
+} 
