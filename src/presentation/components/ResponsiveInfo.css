@@ -1,0 +1,53 @@
+.responsive-info {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.responsive-info-content {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: 1.4;
+  font-family: monospace;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.responsive-info p {
+  margin: 4px 0;
+}
+
+.responsive-type {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 8px !important;
+}
+
+.mobile-only, .tablet-only, .desktop-only {
+  display: none;
+}
+
+@media (max-width: 575px) {
+  .mobile-only {
+    display: inline;
+    color: #ff3b30;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .tablet-only {
+    display: inline;
+    color: #ffcc00;
+  }
+}
+
+@media (min-width: 768px) {
+  .desktop-only {
+    display: inline;
+    color: #34c759;
+  }
+} 
