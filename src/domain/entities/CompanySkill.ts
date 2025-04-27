@@ -1,7 +1,7 @@
-import { Company } from './Company';
-import { Skill } from './Skill';
-import { DateRange } from '../value-objects/DateRange';
-import { SkillLevel } from '../value-objects/SkillLevel';
+import { Company } from '@domain/entities/Company';
+import { Skill } from '@domain/entities/Skill';
+import { DateRange } from '@domain/value-objects/DateRange';
+import { SkillLevel } from '@domain/value-objects/SkillLevel';
 
 class CompanySkill {
   private readonly _id: string;
