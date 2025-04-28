@@ -185,7 +185,7 @@ LinkedIn: https://linkedin.com/in/yourprofile
           <div className="terminal-prompt">
             <span className="terminal-user">guest</span>
             <span className="terminal-at">@</span>
-            <span className="terminal-host">portfolio</span>
+            <span className="terminal-host">home</span>
             <span className="terminal-colon">:</span>
             <span className="terminal-path">~</span>
             <span className="terminal-dollar">$</span>
