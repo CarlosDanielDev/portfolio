@@ -2,7 +2,14 @@ class Command {
   private readonly text: string;
   
   constructor(text: string) {
+    if (Command.isEmpty(text)) {
+      throw new Error('Command text cannot be empty');
+    }
     this.text = text.trim();
+  }
+
+  private static isEmpty(text: string): boolean {
+    return text.trim() === '';
   }
   
   getText(): string {
