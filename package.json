@@ -10,8 +10,7 @@
     "preview": "vite preview",
     "test": "NODE_OPTIONS=--experimental-vm-modules jest --runInBand --config jest.config.js src/tests/**",
     "test:watch": "NODE_OPTIONS=--experimental-vm-modules jest --runInBand --config jest.config.js --watch src/tests/**",
-    "test:coverage": "NODE_OPTIONS=--experimental-vm-modules jest --config jest.config.js --coverage",
-    "test:working": "NODE_OPTIONS=--experimental-vm-modules jest --runInBand --config jest.config.js --testPathIgnorePatterns='(TerminalLine|CommandProcessor|HelpCommandHandler|ListCompaniesCommandHandler|SkillsCommandHandler|ChangeCompanyCommandHandler|TerminalHistory|TerminalLineView|Terminal|ContactCommandHandler|useTheme)'"
+    "test:coverage": "NODE_OPTIONS=--experimental-vm-modules jest --config jest.config.js --coverage"
   },
   "dependencies": {
     "react": "^18.2.0",
