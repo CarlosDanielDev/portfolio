@@ -1,7 +1,7 @@
 import { Theme } from '@presentation/themes/Theme'
-import { createDarkTheme } from '@presentation/themes/themes/DarkTheme'
-import { createLightTheme } from '@presentation/themes/themes/LightTheme'
-import { createCyberpunkTheme } from '@presentation/themes/themes/CyberpunkTheme'
+import { createDarkTheme } from '@presentation/themes/custom/DarkTheme'
+import { createLightTheme } from '@presentation/themes/custom/LightTheme'
+import { createCyberpunkTheme } from '@presentation/themes/custom/CyberpunkTheme'
 
 export type ThemeChangeListener = (theme: Theme) => void
 

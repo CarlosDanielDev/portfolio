@@ -1,4 +1,4 @@
-import { createDarkTheme } from '@presentation/themes/themes/DarkTheme';
+import { createDarkTheme } from '@presentation/themes/custom/DarkTheme';
 import { Theme } from '@presentation/themes/Theme';
 
 describe('DarkTheme', () => {

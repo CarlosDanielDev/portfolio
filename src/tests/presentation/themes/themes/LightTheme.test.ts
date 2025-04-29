@@ -1,4 +1,4 @@
-import { createLightTheme } from '@presentation/themes/themes/LightTheme';
+import { createLightTheme } from '@presentation/themes/custom/LightTheme';
 import { Theme } from '@presentation/themes/Theme';
 
 describe('LightTheme', () => {

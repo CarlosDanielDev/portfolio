@@ -1,4 +1,4 @@
-import { createCyberpunkTheme } from '@presentation/themes/themes/CyberpunkTheme';
+import { createCyberpunkTheme } from '@presentation/themes/custom/CyberpunkTheme';
 import { Theme } from '@presentation/themes/Theme';
 
 describe('CyberpunkTheme', () => {
