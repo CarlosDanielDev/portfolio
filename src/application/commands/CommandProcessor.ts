@@ -1,5 +1,5 @@
 import type { Command } from '@domain/value-objects/Command';
-import type { CommandHandler } from './CommandHandler';
+import type { CommandHandler } from '@application/commands/CommandHandler';
 
 class CommandProcessor {
   private readonly handlers: CommandHandler[];
