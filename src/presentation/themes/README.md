@@ -9,7 +9,7 @@ src/presentation/themes/
 ├── Theme.ts                # Classe base para temas
 ├── ThemeTokens.ts          # Tipos e classes de valor para tokens de design
 ├── ThemeManager.ts         # Gerenciador central de temas (Singleton)
-├── themes/                 # Implementações de temas específicos
+├── custom/                 # Implementações de temas específicos
 │   ├── LightTheme.ts       # Tema claro
 │   ├── DarkTheme.ts        # Tema escuro
 │   └── CyberpunkTheme.ts   # Tema cyberpunk
