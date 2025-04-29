@@ -4,24 +4,24 @@ import { useResponsive } from '@presentation/hooks/useResponsive';
 import './Header.css';
 
 export function Header() {
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { isMobile } = useResponsive();
   
-  useEffect(() => {
-    const handleScroll = () => {
-      const isScrolled = window.scrollY > 10;
-      if (isScrolled !== scrolled) {
-        setScrolled(isScrolled);
-      }
-    };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const isScrolled = window.scrollY > 10;
+  //     if (isScrolled !== scrolled) {
+  //       setScrolled(isScrolled);
+  //     }
+  //   };
     
-    document.addEventListener('scroll', handleScroll);
+  //   document.addEventListener('scroll', handleScroll);
     
-    return () => {
-      document.removeEventListener('scroll', handleScroll);
-    };
-  }, [scrolled]);
+  //   return () => {
+  //     document.removeEventListener('scroll', handleScroll);
+  //   };
+  // }, [scrolled]);
   
   useEffect(() => {
     if (!isMobile) {
@@ -78,7 +78,7 @@ export function Header() {
         
         <nav className={`header-nav ${menuOpen ? 'open' : ''}`}>
           <ul className="header-nav-list">
-            <li className="header-nav-item">
+            {/* <li className="header-nav-item">
               <a 
                 href="#experience" 
                 className="header-nav-link" 
@@ -95,7 +95,7 @@ export function Header() {
               >
                 Skills
               </a>
-            </li>
+            </li> */}
             <li className="header-nav-item">
               <a 
                 href="#terminal" 
