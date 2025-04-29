@@ -16,10 +16,12 @@
 }
 
 .footer-section {
-  flex: 1;
   min-width: 200px;
   margin-bottom: 1.5rem;
   padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .footer-section h3 {
