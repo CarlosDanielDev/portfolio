@@ -1,6 +1,8 @@
 # Sistema de Temas
 
-Este sistema de temas foi desenvolvido seguindo os princípios de Clean Architecture, Domain-Driven Design e Object Calisthenics para fornecer uma solução flexível e extensível para gerenciar temas na aplicação.
+Este sistema de temas foi desenvolvido seguindo os princípios de `Clean Architecture`,
+`Domain-Driven Design` e `Object Calisthenics` para fornecer uma solução flexível e
+extensível para gerenciar temas na aplicação.
 
 ## Estrutura de Arquivos
 
