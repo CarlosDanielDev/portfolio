@@ -14,4 +14,11 @@ describe('HelpCommandHandler', () => {
         const result = handler.handle();
         expect(result).toBeDefined();
     })
+
+    it('should not handle other commands', () => {
+        const command = new Command('ls');
+        const handler = new HelpCommandHandler();
+        const result = handler.canHandle(command);
+        expect(result).toBe(false);
+    })
 })
