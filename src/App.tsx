@@ -1,7 +1,7 @@
 import { PortfolioProvider } from '@presentation/contexts/PortfolioContext';
 import { Header } from '@presentation/components/Header';
-import { CompanyList } from '@presentation/components/CompanyList';
-import { SkillsList } from '@presentation/components/SkillsList';
+// import { CompanyList } from '@presentation/components/CompanyList';
+// import { SkillsList } from '@presentation/components/SkillsList';
 import { Terminal } from '@presentation/components/Terminal';
 import { Footer } from '@presentation/components/Footer';
 import { ThemeProvider } from '@presentation/contexts/ThemeContext';
@@ -18,7 +18,7 @@ function App() {
           <Header />
           
           <main className="main-content container">
-            <section id="experience" className="section">
+            {/* <section id="experience" className="section">
               <h2 className="section-title">Experience & Skills</h2>
               <div className="content-grid">
                 <div className="content-left">
@@ -28,7 +28,7 @@ function App() {
                   <SkillsList />
                 </div>
               </div>
-            </section>
+            </section> */}
             
             <section id="terminal" className="section">
               <h2 className="section-title">Interactive Terminal</h2>
