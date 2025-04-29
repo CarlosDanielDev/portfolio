@@ -4,7 +4,7 @@ Este sistema de temas foi desenvolvido seguindo os princípios de Clean Architec
 
 ## Estrutura de Arquivos
 
-```
+```text
 src/presentation/themes/
 ├── Theme.ts                # Classe base para temas
 ├── ThemeTokens.ts          # Tipos e classes de valor para tokens de design
@@ -25,6 +25,7 @@ src/presentation/themes/
 ### Tema Cyberpunk
 
 O tema Cyberpunk apresenta:
+
 - Cores neon vibrantes (rosa, ciano, amarelo)
 - Contrastes fortes e brilhantes
 - Tipografia futurista (fonte Orbitron)
@@ -128,4 +129,4 @@ export function createCustomTheme(): Theme {
 
 // Em ThemeManager.ts, adicione:
 this.registerTheme(createCustomTheme());
-``` 
+```
