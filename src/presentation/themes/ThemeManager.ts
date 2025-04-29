@@ -9,16 +9,19 @@ export class ThemeManager {
   private static instance: ThemeManager | null = null
   
   private currentTheme: Theme
+
   private registeredThemes: Map<string, Theme>
+
   private listeners: Set<ThemeChangeListener>
+
   private storageKey = 'portfolio-theme'
   
   private constructor() {
     this.registeredThemes = new Map()
     this.listeners = new Set()
     
-    this.registerTheme(createLightTheme())
     this.registerTheme(createDarkTheme())
+    this.registerTheme(createLightTheme())
     this.registerTheme(createCyberpunkTheme())
     
     const savedTheme = this.loadSavedTheme()
