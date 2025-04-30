@@ -150,6 +150,8 @@
   .header-nav.open {
     transform: translateX(0);
     visibility: visible;
+    height: 100vh;
+    align-items: baseline;
   }
   
   .header-nav-list {
