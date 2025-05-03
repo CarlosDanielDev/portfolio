@@ -182,4 +182,66 @@
 [data-theme="cyberpunk"] .terminal-input {
   color: var(--colors-text-primary);
   text-shadow: 0 0 5px var(--colors-secondary);
+}
+
+[data-theme="dos"] .terminal {
+  background-color: var(--colors-background);
+  border: 1px solid var(--colors-primary);
+  border-radius: 0;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+  font-family: 'VT323', 'Courier New', monospace;
+}
+
+[data-theme="dos"] .terminal-header {
+  background-color: var(--colors-primary);
+  color: var(--colors-background);
+  padding: 4px 16px;
+}
+
+[data-theme="dos"] .terminal-title {
+  color: var(--colors-background);
+  font-family: 'VT323', 'Courier New', monospace;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+[data-theme="dos"] .terminal-body {
+  color: var(--colors-text-primary);
+  background-color: var(--colors-background);
+  font-family: 'VT323', 'Courier New', monospace;
+  font-size: 1.1rem;
+  padding: 12px;
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
+}
+
+[data-theme="dos"] .terminal-user,
+[data-theme="dos"] .terminal-host,
+[data-theme="dos"] .terminal-path {
+  color: var(--colors-primary);
+}
+
+[data-theme="dos"] .terminal-at,
+[data-theme="dos"] .terminal-colon,
+[data-theme="dos"] .terminal-dollar,
+[data-theme="dos"] .terminal-command,
+[data-theme="dos"] .terminal-output,
+[data-theme="dos"] .terminal-input {
+  color: var(--colors-text-primary);
+}
+
+[data-theme="dos"] .terminal-input {
+  font-family: 'VT323', 'Courier New', monospace;
+  font-size: 1.1rem;
+  caret-color: var(--colors-primary);
+  caret-shape: block;
+}
+
+[data-theme="dos"] .terminal-body::-webkit-scrollbar-track {
+  background: var(--colors-background);
+}
+
+[data-theme="dos"] .terminal-body::-webkit-scrollbar-thumb {
+  background: var(--colors-primary);
+  border: 1px solid var(--colors-primary);
 } 

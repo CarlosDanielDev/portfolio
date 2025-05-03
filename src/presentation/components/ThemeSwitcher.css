@@ -111,4 +111,69 @@
 
 [data-theme='light'] .theme-switcher svg {
   color: var(--colors-text-primary);
+}
+
+[data-theme='dos'] .theme-switcher {
+  background: var(--colors-surface);
+  border: 1px solid var(--colors-primary);
+  border-radius: 0;
+  color: var(--colors-primary);
+  box-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+[data-theme='dos'] .theme-switcher:hover {
+  background-color: var(--colors-primary);
+  color: var(--colors-background);
+}
+
+[data-theme='dos'] .theme-menu {
+  background-color: var(--colors-background);
+  border: 1px solid var(--colors-primary);
+  border-radius: 0;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+  font-family: 'VT323', 'Courier New', monospace;
+  animation: blinkIn 0.3s step-end;
+}
+
+[data-theme='dos'] .theme-menu-item {
+  font-family: 'VT323', 'Courier New', monospace;
+  font-size: 1.1rem;
+  transition: all var(--transitions-fast);
+  border-bottom: 1px solid rgba(0, 255, 0, 0.3);
+}
+
+[data-theme='dos'] .theme-menu-item:last-child {
+  border-bottom: none;
+}
+
+[data-theme='dos'] .theme-menu-item:hover {
+  background-color: var(--colors-primary);
+  color: var(--colors-background);
+}
+
+[data-theme='dos'] .theme-menu-item.active {
+  background-color: var(--colors-primary);
+  color: var(--colors-background);
+  font-weight: normal;
+}
+
+[data-theme='dos'] .theme-menu-item.active .theme-icon {
+  color: var(--colors-background);
+}
+
+[data-theme='dos'] .theme-menu-item:before {
+  content: '>';
+  margin-right: 5px;
+  display: inline-block;
+  visibility: hidden;
+}
+
+[data-theme='dos'] .theme-menu-item.active:before,
+[data-theme='dos'] .theme-menu-item:hover:before {
+  visibility: visible;
+}
+
+@keyframes blinkIn {
+  0%, 50% { opacity: 0; }
+  100% { opacity: 1; }
 } 

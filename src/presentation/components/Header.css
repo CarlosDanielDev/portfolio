@@ -208,4 +208,46 @@
 
 [data-theme="cyberpunk"] .header-nav-link:hover {
   text-shadow: 0 0 8px var(--colors-primary);
+}
+
+[data-theme="dos"] .header {
+  border-bottom: 1px solid var(--colors-primary);
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+  padding: 0.5rem 0;
+}
+
+[data-theme="dos"] .header-logo h1 {
+  font-family: 'VT323', 'Courier New', monospace;
+  color: var(--colors-primary);
+  text-shadow: 0 0 8px rgba(0, 255, 0, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 1.8rem;
+}
+
+[data-theme="dos"] .header-tagline {
+  font-family: 'VT323', 'Courier New', monospace;
+  color: var(--colors-text-primary);
+  text-transform: uppercase;
+}
+
+[data-theme="dos"] .header-nav-link {
+  font-family: 'VT323', 'Courier New', monospace;
+  text-transform: uppercase;
+  transition: all var(--transitions-fast);
+}
+
+[data-theme="dos"] .header-nav-link:hover {
+  color: var(--colors-primary);
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
+}
+
+[data-theme="dos"] .header-nav-link::after {
+  background-color: var(--colors-primary);
+  height: 1px;
+}
+
+[data-theme="dos"] .mobile-menu-toggle .hamburger-line {
+  background-color: var(--colors-primary);
+  box-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
 } 
