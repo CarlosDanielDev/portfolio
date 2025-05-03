@@ -42,11 +42,12 @@ describe('ThemeManager', () => {
   it('should have default themes registered', () => {
     const availableThemes = themeManager.getAvailableThemes();
     
-    expect(availableThemes.length).toBeGreaterThanOrEqual(2);
+    expect(availableThemes.length).toBeGreaterThanOrEqual(3);
     
     const themeNames = availableThemes.map(theme => theme.getName());
     expect(themeNames).toContain('light');
     expect(themeNames).toContain('dark');
+    expect(themeNames).toContain('dos');
   });
   
   it('should get theme by name', () => {
@@ -74,15 +75,15 @@ describe('ThemeManager', () => {
     expect(localStorageMock.setItem).toHaveBeenCalledWith('portfolio-theme', 'dark');
   });
   
-  it('should toggle between light and dark themes', () => {
-    themeManager.setTheme('light');
-    expect(themeManager.getCurrentTheme().getName()).toBe('light');
+  it('should toggle between dos and dark themes', () => {
+    themeManager.setTheme('dos');
+    expect(themeManager.getCurrentTheme().getName()).toBe('dos');
     
     themeManager.toggleTheme();
     expect(themeManager.getCurrentTheme().getName()).toBe('dark');
     
     themeManager.toggleTheme();
-    expect(themeManager.getCurrentTheme().getName()).toBe('light');
+    expect(themeManager.getCurrentTheme().getName()).toBe('dos');
   });
   
   it('should notify listeners when theme changes', () => {

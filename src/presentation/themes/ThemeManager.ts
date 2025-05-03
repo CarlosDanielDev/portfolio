@@ -2,6 +2,7 @@ import { Theme } from '@presentation/themes/Theme'
 import { createDarkTheme } from '@presentation/themes/custom/DarkTheme'
 import { createLightTheme } from '@presentation/themes/custom/LightTheme'
 import { createCyberpunkTheme } from '@presentation/themes/custom/CyberpunkTheme'
+import { createDosTheme } from '@presentation/themes/custom/DosTheme'
 
 export type ThemeChangeListener = (theme: Theme) => void
 
@@ -23,9 +24,10 @@ export class ThemeManager {
     this.registerTheme(createDarkTheme())
     this.registerTheme(createLightTheme())
     this.registerTheme(createCyberpunkTheme())
+    this.registerTheme(createDosTheme())
     
     const savedTheme = this.loadSavedTheme()
-    this.currentTheme = savedTheme || this.getTheme('light')
+    this.currentTheme = savedTheme || this.getTheme('dos')
   }
   
   static getInstance(): ThemeManager {
@@ -112,7 +114,7 @@ export class ThemeManager {
   
   toggleTheme(): void {
     const currentName = this.currentTheme.getName()
-    const newName = currentName === 'light' ? 'dark' : 'light'
+    const newName = currentName === 'dos' ? 'dark' : 'dos'
     
     this.setTheme(newName)
   }
