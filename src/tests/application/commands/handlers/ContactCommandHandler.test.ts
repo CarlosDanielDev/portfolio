@@ -20,7 +20,7 @@ const mock = {
 }
 
 describe("ContactCommandHandler", () => {
-  describe("Anoymous user", () => {
+  describe("Anoymous user with no authentication", () => {
     it("should create a contact", () => {
       const contact = new ContactCommandHandler();
       expect(contact).toBeDefined();
