@@ -56,7 +56,7 @@ export function Header() {
       <div className="header-container">
         <div className="header-logo">
           <h1>{import.meta.env.VITE_APP_AUTHOR || 'Your Name'}</h1>
-          <p className="header-tagline">Portfolio</p>
+          <p className="header-tagline">Software Developer</p>
         </div>
         
         <div className="header-actions">
