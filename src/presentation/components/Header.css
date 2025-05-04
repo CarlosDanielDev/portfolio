@@ -30,7 +30,7 @@
 .header-logo {
   display: flex;
   flex-direction: column;
-  z-index: 1001; /* Garantir que o logo fique acima do menu mobile */
+  z-index: 1001; 
 }
 
 .header-logo h1 {
@@ -46,21 +46,19 @@
   margin: 0;
 }
 
-/* Ações do header (tema e botão de menu) */
 .header-actions {
   display: flex;
   align-items: center;
   gap: 1rem;
-  z-index: 1001; /* Garantir que as ações fiquem acima do menu mobile */
+  z-index: 1001; 
 }
 
-/* Menu mobile toggle */
 .mobile-menu-toggle {
   display: none;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0.5rem;
+  padding: 0.6rem;
   color: var(--colors-text-primary);
 }
 
@@ -126,7 +124,7 @@
 @media (max-width: 768px) {
   /* Mostrar botão de toggle do menu */
   .mobile-menu-toggle {
-    display: block;
+    display: flex;
   }
   
   /* Estilizar menu mobile */
@@ -172,7 +170,6 @@
     padding: 0.75rem 0;
   }
   
-  /* Animação do botão hamburger para X */
   .menu-open .hamburger-line:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
   }
