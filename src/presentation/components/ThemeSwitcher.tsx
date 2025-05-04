@@ -1,23 +1,23 @@
-import { useState, useRef, useEffect } from 'react'
-import { useThemeContext } from '@presentation/contexts/ThemeContext'
-import './ThemeSwitcher.css'
+import { useState, useRef, useEffect } from "react";
+import { useThemeContext } from "@presentation/contexts/ThemeContext";
+import "./ThemeSwitcher.css";
 
 export function ThemeSwitcher() {
-  const { themeName, setTheme, availableThemes } = useThemeContext()
-  const [menuOpen, setMenuOpen] = useState(false)
-  const menuRef = useRef<HTMLDivElement>(null)
-  
+  const { themeName, setTheme, availableThemes } = useThemeContext();
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
   const themeIcons = {
     light: (
-      <svg 
-        xmlns="http://www.w3.org/2000/svg" 
-        width="20" 
-        height="20" 
-        viewBox="0 0 24 24" 
-        fill="none" 
-        stroke="currentColor" 
-        strokeWidth="2" 
-        strokeLinecap="round" 
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
         strokeLinejoin="round"
       >
         <circle cx="12" cy="12" r="5"></circle>
@@ -32,15 +32,15 @@ export function ThemeSwitcher() {
       </svg>
     ),
     dark: (
-      <svg 
-        xmlns="http://www.w3.org/2000/svg" 
-        width="20" 
-        height="20" 
-        viewBox="0 0 24 24" 
-        fill="none" 
-        stroke="currentColor" 
-        strokeWidth="2" 
-        strokeLinecap="round" 
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
         strokeLinejoin="round"
       >
         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
@@ -77,27 +77,27 @@ export function ThemeSwitcher() {
         <line x1="8" y1="10" x2="16" y2="10"></line>
         <line x1="6" y1="14" x2="18" y2="14"></line>
       </svg>
-    )
-  }
-  
+    ),
+  };
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setMenuOpen(false)
+        setMenuOpen(false);
       }
-    }
-    
-    document.addEventListener('mousedown', handleClickOutside)
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [])
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const getCurrentIcon = () => {
-    const icon = themeIcons[themeName as keyof typeof themeIcons]
-    return icon || themeIcons.light
-  }
-  
+    const icon = themeIcons[themeName as keyof typeof themeIcons];
+    return icon || themeIcons.light;
+  };
+
   return (
     <div className="theme-switcher-container" ref={menuRef}>
       <button
@@ -108,28 +108,31 @@ export function ThemeSwitcher() {
       >
         {getCurrentIcon()}
       </button>
-      
+
       {menuOpen && (
         <div className="theme-menu">
           {availableThemes.map((theme) => (
             <button
               key={theme.getName()}
-              className={`theme-menu-item ${theme.getName() === themeName ? 'active' : ''}`}
+              className={`theme-menu-item ${theme.getName() === themeName ? "active" : ""}`}
               onClick={() => {
-                setTheme(theme.getName())
-                setMenuOpen(false)
+                setTheme(theme.getName());
+                setMenuOpen(false);
               }}
             >
               <span className="theme-icon">
-                {themeIcons[theme.getName() as keyof typeof themeIcons] || themeIcons.light}
+                {themeIcons[theme.getName() as keyof typeof themeIcons] ||
+                  themeIcons.light}
               </span>
               <span className="theme-name">
-                {theme.getName().charAt(0).toUpperCase() + theme.getName().slice(1)}
+                {theme.getName().charAt(0).toUpperCase() +
+                  theme.getName().slice(1)}
               </span>
             </button>
           ))}
         </div>
       )}
     </div>
-  )
-} 
+  );
+}
+
