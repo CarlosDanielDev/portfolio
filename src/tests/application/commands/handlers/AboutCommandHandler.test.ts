@@ -1,24 +1,27 @@
 import { Command } from "@domain/value-objects/Command";
 import { AboutCommandHandler } from "@application/commands/handlers/AboutCommandHandler";
 
-describe('AboutCommandHandler', () => {
-    it('should return the about message', () => {
-        const handler = new AboutCommandHandler();
-        const result = handler.handle();
-        expect(result).toBeDefined();
-    })
+describe("AboutCommandHandler", () => {
+  describe("Anonymous user", () => {
+    it("Should handle correctly", () => {
+      const handler = new AboutCommandHandler();
+      const result = handler.handle();
+      expect(typeof result).toBe("string");
+    });
 
-    it('should return the about message', () => {
-        const command = new Command('about');
-        const handler = new AboutCommandHandler();
-        const result = handler.canHandle(command);
-        expect(result).toBe(true);
-    })
+    it("Should return the about message", () => {
+      const command = new Command("about");
+      const handler = new AboutCommandHandler();
+      const result = handler.canHandle(command);
+      expect(result).toBe(true);
+    });
 
-    it('should not handle other commands', () => {
-        const command = new Command('ls');
-        const handler = new AboutCommandHandler();
-        const result = handler.canHandle(command);
-        expect(result).toBe(false);
-    })
-})
+    it("Should not handle other commands", () => {
+      const command = new Command("ls");
+      const handler = new AboutCommandHandler();
+      const result = handler.canHandle(command);
+      expect(result).toBe(false);
+    });
+  });
+});
+
