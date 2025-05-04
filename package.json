@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "NODE_OPTIONS=--experimental-vm-modules jest --runInBand --config jest.config.js src/tests/**",
-    "test:watch": "NODE_OPTIONS=--experimental-vm-modules jest --runInBand --config jest.config.js --watch src/tests/**",
+    "test:watch": "NODE_OPTIONS=--experimental-vm-modules jest --runInBand --config jest.config.js --watch",
     "test:watch:file": "NODE_OPTIONS=--experimental-vm-modules jest --runInBand --config jest.config.js --watch",
     "test:coverage": "NODE_OPTIONS=--experimental-vm-modules jest --config jest.config.js --coverage"
   },
