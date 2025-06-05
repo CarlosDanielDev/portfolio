@@ -82,7 +82,7 @@ export const profileData: ProfileData = {
   ],
   education: [
     {
-      institution: 'FIAP - Faculty of Informatics and Business Administration',
+      institution: 'FIAP - Faculdade de Informática e Administração Paulista',
       degree: 'Systems Analysis and Development',
       startDate: new Date('2022-01'),
       endDate: new Date('2024-01'),
