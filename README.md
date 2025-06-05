@@ -1,47 +1,98 @@
-# Portfolio Website
+# Carlos Daniel's Portfolio
 
-An interactive portfolio website showcasing professional experience, skills, and featuring an interactive terminal.
+An interactive portfolio website showcasing my professional experience as a Senior Frontend Developer with expertise in React Native and TypeScript. Features an innovative terminal-based interface for exploring my career journey.
 
-## Features
+## Overview
 
-- **Experience Timeline**: Display work history with company details
-- **Skills Showcase**: List skills used at each company with proficiency levels
-- **Interactive Terminal**: Execute commands to explore the portfolio
-- **Responsive Design**: Works on desktop and mobile devices
+This portfolio is built with a focus on clean architecture and domain-driven design, presenting my 6+ years of experience in creating high-impact mobile and web applications. The terminal interface offers a unique way to explore my professional journey and technical expertise.
 
-## Technology Stack
+## Key Features
 
-- **Frontend**: React + TypeScript + Vite
-- **Styling**: Vanilla CSS
-- **Testing**: Jest
-- **Architecture**: Domain-Driven Design (DDD)
+- **Interactive Terminal Interface**: Navigate through my experience using familiar terminal commands
+- **Company-Based Navigation**: Explore my work at different companies (Nestlé Health Science, Stix, Primepass Connect)
+- **Dynamic Skill Mapping**: View skills and achievements specific to each role
+- **Clean Architecture**: Implements DDD and SOLID principles for maintainable, testable code
+- **Responsive Design**: Seamless experience across all devices
+
+## Technical Stack
+
+- **Core**: React + TypeScript + Vite
+- **Architecture**: Domain-Driven Design (DDD) + Clean Architecture
+- **Testing**: Jest + React Testing Library
+- **State Management**: Context API
+- **Build & Deploy**: Docker + Azure DevOps
 
 ## Project Structure
 
-The project follows DDD principles with a clean architecture approach:
+The project follows a strict clean architecture approach with DDD principles:
 
 ```
 src/
-├── domain/           # Domain entities, value objects, repositories interfaces
-├── application/      # Use cases, services, DTOs
-├── infrastructure/   # Concrete implementations, configs, services
-├── presentation/     # React components, hooks, contexts
-└── tests/            # Test files mirroring the main structure
+├── application/      # Use cases and command handlers
+│   ├── commands/    # Terminal command implementations
+│   └── use-cases/   # Business logic orchestration
+├── domain/          # Core business rules
+│   ├── entities/    # Company, Skill, CompanySkill
+│   ├── services/    # Domain services
+│   └── value-objects/ # Command, DateRange, SkillLevel
+├── infrastructure/  # External concerns
+│   ├── config/     # Configuration
+│   ├── data/       # Profile and experience data
+│   ├── repositories/ # Data storage implementations
+│   └── services/   # External services
+├── presentation/   # UI Layer
+│   ├── components/ # React components
+│   ├── contexts/   # React contexts
+│   ├── hooks/      # Custom hooks
+│   └── styles/     # CSS styles
+└── tests/         # Test files mirroring src structure
 ```
+
+## Terminal Commands
+
+Explore my portfolio using these commands:
+
+- `help`: Show available commands
+- `ls`: List all companies I've worked at
+- `cd <company>`: View details about a specific company
+- `skills`: Display skills used at the current company
+- `about`: Learn more about me
+- `contact`: Get my contact information
+- `clear`: Clear the terminal
+
+## Professional Background
+
+- **Senior Frontend Developer** at Nestlé Health Science - Puravida (2022-Present)
+  - Lead frontend architect for B2B/B2C applications
+  - Expertise in React, React Native, and TypeScript
+  - CI/CD implementation with Azure DevOps
+
+- **Senior Frontend Developer** at Stix (2021-2022)
+  - Led development of high-impact loyalty app
+  - Improved app performance by 40%
+  - Integration with major retail chains
+
+- **Senior Frontend Developer** at Primepass Connect (2020)
+  - Solo technical lead for subscription-based cinema app
+  - Full-stack development with React Native and Node.js
+  - Implemented payment and streaming integrations
+
+## Technical Expertise
+
+- **Mobile Development**: React Native (Expert)
+- **Frontend**: React.js, TypeScript, JavaScript (Expert)
+- **State Management**: Redux, Context API (Advanced)
+- **Backend**: Node.js, Express, RESTful APIs (Advanced)
+- **DevOps**: Docker, Azure DevOps, CI/CD (Advanced)
+- **Testing**: Jest, React Testing Library, E2E Testing (Advanced)
+- **Methodologies**: Scrum, Kanban (Advanced)
 
 ## Getting Started
 
-### Prerequisites
-
-- Node.js (v16+)
-- npm or yarn
-
-### Installation
-
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/my-website.git
-cd my-website
+git clone https://github.com/CarlosDanielDev/portfolio.git
+cd portfolio
 ```
 
 2. Install dependencies
@@ -49,59 +100,24 @@ cd my-website
 npm install
 ```
 
-3. Create a `.env` file with your environment variables (see `.env.example`)
-
-4. Start the development server
+3. Start the development server
 ```bash
 npm run dev
 ```
-
-## Environment Variables
-
-The application uses the following environment variables:
-
-- `VITE_APP_TITLE`: Your portfolio title
-- `VITE_APP_DESCRIPTION`: Portfolio description
-- `VITE_APP_AUTHOR`: Your name
-- `VITE_APP_EMAIL`: Your contact email
 
 ## Available Scripts
 
 - `npm run dev`: Start development server
 - `npm run build`: Build for production
-- `npm run preview`: Preview production build
-- `npm run test`: Run tests
-- `npm run test:watch`: Run tests in watch mode
+- `npm run test`: Run test suite
+- `npm run test:coverage`: Run tests with coverage report
 
-## Terminal Commands
+## Contact
 
-The interactive terminal supports the following commands:
-
-- `help`: Display available commands
-- `ls`: List all companies
-- `cd <company_name>`: Select a company
-- `skills`: Show skills for the current company
-- `clear`: Clear the terminal
-- `about`: Display information about the author
-- `contact`: Show contact information
-
-## Architecture
-
-This project follows Domain-Driven Design (DDD) and Clean Architecture principles:
-
-1. **Domain Layer**: Core business logic (entities, value objects)
-2. **Application Layer**: Orchestrates the domain objects (use cases)
-3. **Infrastructure Layer**: External concerns and implementations
-4. **Presentation Layer**: UI components and state management
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+- Email: carlosdanielsodev@gmail.com
+- GitHub: [CarlosDanielDev](https://github.com/CarlosDanielDev)
+- LinkedIn: [carlosdanielsodev](https://linkedin.com/in/carlosdanielsodev)
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License. Feel free to use it as inspiration for your own portfolio, but please give appropriate credit.
