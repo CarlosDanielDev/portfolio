@@ -37,7 +37,7 @@ export const profileData: ProfileData = {
     linkedin: 'https://www.linkedin.com/in/carlosdanielsodev',
     github: 'https://github.com/CarlosDanielDev',
   },
-  summary: 'Desenvolvedor Sênior com mais de 6 anos de experiência especializado em React Native e TypeScript, com sólido histórico na criação e arquitetura de aplicações mobile cross-platform de alto impacto. Expertise em liderar projetos técnicos complexos desde a concepção até o lançamento, com foco em soluções ágeis e experiência excepcional do usuário.',
+  summary: 'Senior Developer with 6+ years of experience specializing in React Native and TypeScript, with a proven track record in architecting and delivering high-impact cross-platform mobile applications. Expertise in leading complex technical projects from conception to launch, with focus on agile solutions and exceptional user experience.',
   experiences: [
     {
       companyName: 'Nestlé Health Science - Puravida',
@@ -45,11 +45,11 @@ export const profileData: ProfileData = {
       startDate: '2022-01',
       location: 'Remote',
       achievements: [
-        { description: 'Arquiteto principal de soluções frontend para aplicações B2B/B2C' },
-        { description: 'Desenvolvimento de aplicações web com React e mobile com React Native' },
-        { description: 'Criação de ferramentas internas de automação de marketing', impact: 'reduzindo tempo de campanhas em 60%' },
-        { description: 'Implementação de pipelines de CI/CD usando Azure DevOps e Docker' },
-        { description: 'Liderança técnica em metodologias ágeis (Scrum e Kanban)' },
+        { description: 'Lead frontend architect for B2B/B2C applications' },
+        { description: 'Developed web applications with React and mobile apps with React Native' },
+        { description: 'Built internal marketing automation tools', impact: 'reducing campaign time by 60%' },
+        { description: 'Implemented CI/CD pipelines using Azure DevOps and Docker' },
+        { description: 'Provided technical leadership in agile methodologies (Scrum and Kanban)' },
       ],
     },
     {
@@ -59,10 +59,10 @@ export const profileData: ProfileData = {
       endDate: '2021-12',
       location: 'Remote',
       achievements: [
-        { description: 'Liderança técnica no desenvolvimento do aplicativo de fidelidade integrado com Pão de Açúcar, Drogaraia e Drogasil', impact: 'impactando milhões de usuários' },
-        { description: 'Arquitetura e implementação de soluções complexas em React Native e TypeScript em ambiente ágil' },
-        { description: 'Otimização de performance', impact: '40% de melhoria no tempo de carregamento' },
-        { description: 'Implementação de CI/CD com CodePush para deploy contínuo e atualizações over-the-air' },
+        { description: 'Led technical development of loyalty app integrated with Pão de Açúcar, Drogaraia and Drogasil', impact: 'impacting millions of users' },
+        { description: 'Architected and implemented complex solutions in React Native and TypeScript in agile environment' },
+        { description: 'Optimized application performance', impact: '40% improvement in loading time' },
+        { description: 'Implemented CI/CD with CodePush for continuous deployment and over-the-air updates' },
       ],
     },
     {
@@ -72,18 +72,18 @@ export const profileData: ProfileData = {
       endDate: '2020-12',
       location: 'Remote',
       achievements: [
-        { description: 'Responsável técnico único pelo desenvolvimento completo de aplicativo de cinema por assinatura' },
-        { description: 'Arquitetura e desenvolvimento from scratch usando React Native com TypeScript' },
-        { description: 'Integração com APIs de pagamento e sistemas de streaming' },
-        { description: 'Implementação de sistema de Push Notifications', impact: 'aumentando engajamento em 35%' },
-        { description: 'Entrega dentro do prazo com zero bugs críticos no lançamento' },
+        { description: 'Sole technical owner for complete development of subscription-based cinema app' },
+        { description: 'Architected and developed from scratch using React Native with TypeScript' },
+        { description: 'Integrated payment APIs and streaming systems' },
+        { description: 'Implemented Push Notifications system', impact: 'increasing engagement by 35%' },
+        { description: 'Delivered on time with zero critical bugs at launch' },
       ],
     },
   ],
   education: [
     {
-      institution: 'FIAP - Faculdade de Informática e Administração Paulista',
-      degree: 'Análise e Desenvolvimento de Sistemas',
+      institution: 'FIAP - Faculty of Informatics and Business Administration',
+      degree: 'Systems Analysis and Development',
       startDate: new Date('2022-01'),
       endDate: new Date('2024-01'),
     },
@@ -110,4 +110,4 @@ export const profileData: ProfileData = {
     { name: 'Scrum', level: 'Advanced', category: 'Methodology' },
     { name: 'Kanban', level: 'Advanced', category: 'Methodology' },
   ],
-}; 
+};
