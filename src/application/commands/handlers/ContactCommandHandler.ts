@@ -8,13 +8,13 @@ class ContactCommandHandler implements CommandHandler {
   
   handle(): string {
     const email = typeof import.meta.env !== 'undefined' 
-      ? (import.meta.env.VITE_APP_EMAIL ?? 'example@example.com')
-      : 'example@example.com';
+      ? (import.meta.env.VITE_APP_EMAIL ?? 'carlosdanielsodev@gmail.com')
+      : 'carlosdanielsodev@gmail.com';
       
     return `
 Email: ${email}
-GitHub: https://github.com/yourusername
-LinkedIn: https://linkedin.com/in/yourprofile
+GitHub: https://github.com/CarlosDanielDev
+LinkedIn: https://linkedin.com/in/carlosdanielsodev
 `.trim();
   }
 }

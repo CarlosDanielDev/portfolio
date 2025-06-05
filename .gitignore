@@ -26,3 +26,4 @@ dist/*
 coverage/*
 .cursor/*
 .env
+ABOUTME.md

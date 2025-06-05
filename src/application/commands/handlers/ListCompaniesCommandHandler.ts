@@ -14,7 +14,8 @@ class ListCompaniesCommandHandler implements CommandHandler {
       return "No companies found.";
     }
 
-    return this.companies.map((c) => c.name).join("\n");
+    const uniqueCompanyNames = [...new Set(this.companies.map((c) => c.name))];
+    return uniqueCompanyNames.join("\n");
   }
 }
 

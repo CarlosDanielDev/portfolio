@@ -4,6 +4,7 @@ import { InMemoryCompanySkillRepository } from '@infrastructure/repositories/InM
 import { DataInitializationService } from '@infrastructure/services/DataInitializationService';
 import { ListAllCompaniesUseCase } from '@application/use-cases/ListAllCompaniesUseCase';
 import { ListCompanySkillsUseCase } from '@application/use-cases/ListCompanySkillsUseCase';
+import { TabCompletionUseCase } from '@application/use-cases/TabCompletionUseCase';
 import { InMemoryProjectStatisticsRepository } from '@infrastructure/repositories/InMemoryProjectStatisticsRepository';
 import { GetProjectStatisticsUseCase } from '@application/use-cases/GetProjectStatisticsUseCase';
 import type { ProjectStatisticsRepository } from '@domain/repositories/ProjectStatisticsRepository';
@@ -18,6 +19,9 @@ class DependencyConfig {
   
   private projectStatisticsRepository: ProjectStatisticsRepository | null = null;
   private projectStatisticsUseCase: GetProjectStatisticsUseCase | null = null;
+  private listAllCompaniesUseCase: ListAllCompaniesUseCase | null = null;
+  private listCompanySkillsUseCase: ListCompanySkillsUseCase | null = null;
+  private tabCompletionUseCase: TabCompletionUseCase | null = null;
   
   private constructor() {
     this.companyRepository = new InMemoryCompanyRepository();
@@ -44,14 +48,27 @@ class DependencyConfig {
   }
   
   getListAllCompaniesUseCase(): ListAllCompaniesUseCase {
-    return new ListAllCompaniesUseCase(this.companyRepository);
+    if (!this.listAllCompaniesUseCase) {
+      this.listAllCompaniesUseCase = new ListAllCompaniesUseCase(this.companyRepository);
+    }
+    return this.listAllCompaniesUseCase;
   }
   
   getListCompanySkillsUseCase(): ListCompanySkillsUseCase {
-    return new ListCompanySkillsUseCase(
-      this.companyRepository,
-      this.companySkillRepository
-    );
+    if (!this.listCompanySkillsUseCase) {
+      this.listCompanySkillsUseCase = new ListCompanySkillsUseCase(
+        this.companyRepository,
+        this.companySkillRepository
+      );
+    }
+    return this.listCompanySkillsUseCase;
+  }
+
+  getTabCompletionUseCase(): TabCompletionUseCase {
+    if (!this.tabCompletionUseCase) {
+      this.tabCompletionUseCase = new TabCompletionUseCase(this.companyRepository);
+    }
+    return this.tabCompletionUseCase;
   }
 
   getProjectStatisticsRepository(): ProjectStatisticsRepository {

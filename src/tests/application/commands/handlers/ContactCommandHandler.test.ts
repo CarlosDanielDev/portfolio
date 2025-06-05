@@ -30,7 +30,7 @@ describe("ContactCommandHandler", () => {
       expect(canHandleContact).toBe(true);
       const result = contact.handle();
       expect(typeof result).toBe("string");
-      expect(result).toContain("Email: example@example.com");
+      expect(result).toContain("Email: carlosdanielsodev@gmail.com");
     });
 
     it("should not create a contact", () => {

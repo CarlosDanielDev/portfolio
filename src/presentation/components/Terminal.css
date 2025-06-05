@@ -8,6 +8,8 @@
   font-family: 'Courier New', monospace;
   margin-bottom: 2rem;
   border: 1px solid #333;
+  display: flex;
+  flex-direction: column;
 }
 
 @media (max-width: 576px) {
@@ -56,17 +58,18 @@
   font-size: 0.8rem;
 }
 
-.terminal-body {
-  height: calc(100% - 36px);
-  padding: 8px;
+.terminal-content {
+  flex: 1;
   overflow-y: auto;
+  padding: 8px;
   color: #f1f1f1;
   font-size: 0.9rem;
   line-height: 1.5;
+  scroll-behavior: smooth;
 }
 
 @media (max-width: 576px) {
-  .terminal-body {
+  .terminal-content {
     font-size: 0.8rem;
     padding: 6px;
   }
@@ -127,6 +130,13 @@
   }
 }
 
+.terminal-input-wrapper {
+  position: relative;
+  flex: 1;
+  min-width: 100px;
+  display: flex;
+}
+
 .terminal-input {
   background: transparent;
   border: none;
@@ -134,8 +144,29 @@
   font-family: 'Courier New', monospace;
   font-size: 0.9rem;
   outline: none;
-  flex: 1;
-  min-width: 100px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  padding: 0;
+  margin: 0;
+}
+
+.terminal-ghost-text {
+  position: absolute;
+  color: #666;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  pointer-events: none;
+  white-space: pre;
+  z-index: 1;
+  padding: 0;
+  margin: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
 }
 
 @media (max-width: 576px) {
