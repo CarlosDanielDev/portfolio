@@ -24,6 +24,10 @@
 [data-theme='dos'] textarea {
   caret-color: var(--colors-primary);
   caret-shape: block;
+}
+
+[data-theme='dos'] input:not(:focus), 
+[data-theme='dos'] textarea:not(:focus) {
   animation: blink 1s step-end infinite;
 }
 
