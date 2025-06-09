@@ -1,6 +1,6 @@
 .timeline-container {
   max-width: 900px;
-  margin: 4rem auto;
+  margin: 6rem auto;
   padding: 0 1rem;
 }
 
@@ -43,7 +43,7 @@
 
 .timeline-dot {
   position: absolute;
-  right: -6px;
+  right: -8px;
   top: 0;
   width: 16px;
   height: 16px;
@@ -55,7 +55,7 @@
 
 .timeline-item:nth-child(even) .timeline-dot {
   right: auto;
-  left: -6px;
+  left: -8px;
 }
 
 .timeline-content {
@@ -121,6 +121,10 @@
 }
 
 @media (max-width: 768px) {
+  .timeline-container {
+    margin: 4rem auto;
+  }
+
   .timeline::before {
     left: 0;
   }
@@ -136,11 +140,11 @@
   }
   
   .timeline-dot {
-    left: -6px;
+    left: -8px;
     right: auto;
   }
   
   .timeline-item:nth-child(even) .timeline-dot {
-    left: -6px;
+    left: -8px;
   }
 } 
