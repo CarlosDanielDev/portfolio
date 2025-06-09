@@ -27,3 +27,4 @@ coverage/*
 .cursor/*
 .env
 ABOUTME.md
+errors.md
