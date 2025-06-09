@@ -28,7 +28,7 @@ export interface ProfileData {
 }
 
 export const profileData: ProfileData = {
-  name: 'Carlos Daniel S. Oliveira',
+  name: 'Carlos Oliveira',
   title: 'Senior Frontend Developer | Mobile Specialist',
   contact: {
     email: 'carlosdanieldev@gmail.com',
