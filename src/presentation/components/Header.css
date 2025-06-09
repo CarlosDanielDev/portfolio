@@ -51,6 +51,7 @@
   align-items: center;
   gap: 1rem;
   z-index: 1001; 
+  margin-left: 16px;
 }
 
 .mobile-menu-toggle {

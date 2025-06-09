@@ -1,0 +1,109 @@
+.dev-mode-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--colors-text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.dev-mode-toggle::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--colors-primary);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 0;
+}
+
+.dev-mode-toggle svg {
+  position: relative;
+  z-index: 1;
+  transition: all 0.2s ease;
+}
+
+.dev-mode-toggle:hover {
+  border-color: var(--colors-primary);
+}
+
+.dev-mode-toggle:hover svg {
+  transform: translateX(2px) scale(1.1);
+}
+
+.dev-mode-toggle.active {
+  border-color: var(--colors-primary);
+}
+
+.dev-mode-toggle.active::before {
+  opacity: 0.1;
+}
+
+.dev-mode-toggle.active svg {
+  color: var(--colors-primary);
+}
+
+/* Tema DOS */
+[data-theme='dos'] .dev-mode-toggle {
+  border: 1px solid var(--colors-primary);
+  border-radius: 0;
+  background: var(--colors-background);
+}
+
+[data-theme='dos'] .dev-mode-toggle::before {
+  display: none;
+}
+
+[data-theme='dos'] .dev-mode-toggle:hover {
+  background: var(--colors-primary);
+}
+
+[data-theme='dos'] .dev-mode-toggle:hover svg {
+  color: var(--colors-background);
+}
+
+[data-theme='dos'] .dev-mode-toggle.active {
+  background: var(--colors-background);
+  border: 1px double var(--colors-primary);
+  box-shadow: 
+    inset 0 0 2px var(--colors-primary),
+    0 0 8px var(--colors-primary);
+}
+
+[data-theme='dos'] .dev-mode-toggle.active svg {
+  color: var(--colors-primary);
+  filter: drop-shadow(0 0 2px var(--colors-primary));
+}
+
+/* Tema Cyberpunk */
+[data-theme='cyberpunk'] .dev-mode-toggle {
+  border-color: var(--colors-primary);
+  box-shadow: 0 0 10px var(--colors-primary);
+}
+
+[data-theme='cyberpunk'] .dev-mode-toggle:hover {
+  box-shadow: 0 0 15px var(--colors-primary);
+}
+
+[data-theme='cyberpunk'] .dev-mode-toggle.active {
+  box-shadow: inset 0 0 15px var(--colors-primary),
+              0 0 20px var(--colors-primary);
+}
+
+@media (max-width: 768px) {
+  .dev-mode-toggle {
+    width: 36px;
+    height: 36px;
+  }
+} 

@@ -1,27 +1,12 @@
 import { useState, useEffect } from 'react';
 import { ThemeSwitcher } from '@presentation/components/ThemeSwitcher';
+import { DevModeToggle } from '@presentation/components/DevModeToggle';
 import { useResponsive } from '@presentation/hooks/useResponsive';
 import './Header.css';
 
 export function Header() {
-  const [scrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { isMobile } = useResponsive();
-  
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const isScrolled = window.scrollY > 10;
-  //     if (isScrolled !== scrolled) {
-  //       setScrolled(isScrolled);
-  //     }
-  //   };
-    
-  //   document.addEventListener('scroll', handleScroll);
-    
-  //   return () => {
-  //     document.removeEventListener('scroll', handleScroll);
-  //   };
-  // }, [scrolled]);
   
   useEffect(() => {
     if (!isMobile) {
@@ -52,19 +37,20 @@ export function Header() {
   };
   
   return (
-    <header className={`header ${scrolled ? 'scrolled' : ''} ${menuOpen ? 'menu-open' : ''}`}>
+    <header className={`header ${menuOpen ? 'menu-open' : ''}`}>
       <div className="header-container">
         <div className="header-logo">
-          <h1>{import.meta.env.VITE_APP_AUTHOR || 'Your Name'}</h1>
+          <h1>{import.meta.env.VITE_APP_AUTHOR || 'Carlos Daniel'}</h1>
           <p className="header-tagline">Software Developer</p>
         </div>
         
         <div className="header-actions">
+          <DevModeToggle />
           <ThemeSwitcher />
           
           <button 
             className="mobile-menu-toggle" 
-            aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'} 
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'} 
             onClick={toggleMenu}
             aria-expanded={menuOpen}
           >
@@ -78,33 +64,7 @@ export function Header() {
         
         <nav className={`header-nav ${menuOpen ? 'open' : ''}`}>
           <ul className="header-nav-list">
-            {/* <li className="header-nav-item">
-              <a 
-                href="#experience" 
-                className="header-nav-link" 
-                onClick={handleNavLinkClick}
-              >
-                Experience
-              </a>
-            </li>
-            <li className="header-nav-item">
-              <a 
-                href="#skills" 
-                className="header-nav-link" 
-                onClick={handleNavLinkClick}
-              >
-                Skills
-              </a>
-            </li> */}
-            <li className="header-nav-item">
-              <a 
-                href="#terminal" 
-                className="header-nav-link" 
-                onClick={handleNavLinkClick}
-              >
-                Terminal
-              </a>
-            </li>
+            
             <li className="header-nav-item">
               <a 
                 href="#contact" 
@@ -112,6 +72,17 @@ export function Header() {
                 onClick={handleNavLinkClick}
               >
                 Contact
+              </a>
+            </li>
+            <li className="header-nav-item">
+              <a 
+                href="https://drive.google.com/file/d/1HBCS6VhHUH8tCcfILjqYdXDkFFLqlEcx/view?usp=sharing" 
+                className="header-nav-link" 
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={handleNavLinkClick}
+              >
+                Resume
               </a>
             </li>
           </ul>

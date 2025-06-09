@@ -32,7 +32,6 @@ export const profileData: ProfileData = {
   title: 'Senior Frontend Developer | Mobile Specialist',
   contact: {
     email: 'carlosdanieldev@gmail.com',
-    phone: '+55 11 917031763',
     location: 'São Paulo, SP',
     linkedin: 'https://www.linkedin.com/in/carlosdanielsodev',
     github: 'https://github.com/CarlosDanielDev',
