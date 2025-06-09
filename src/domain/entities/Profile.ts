@@ -3,7 +3,7 @@ import { Skill } from '../value-objects/Skill';
 
 export interface Contact {
   email: string;
-  phone: string;
+  phone?: string;
   location: string;
   linkedin?: string;
   github?: string;
