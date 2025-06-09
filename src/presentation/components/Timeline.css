@@ -1,0 +1,146 @@
+.timeline-container {
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 0 1rem;
+}
+
+.timeline-title {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+  color: var(--colors-text-primary);
+  font-weight: 700;
+}
+
+.timeline {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background: var(--colors-primary);
+  opacity: 0.3;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 4rem;
+  width: 50%;
+  padding-right: 2.5rem;
+}
+
+.timeline-item:nth-child(even) {
+  margin-left: auto;
+  padding-right: 0;
+  padding-left: 2.5rem;
+}
+
+.timeline-dot {
+  position: absolute;
+  right: -6px;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--colors-primary);
+  border: 3px solid var(--colors-background);
+  box-shadow: 0 0 0 3px var(--colors-primary-alpha);
+}
+
+.timeline-item:nth-child(even) .timeline-dot {
+  right: auto;
+  left: -6px;
+}
+
+.timeline-content {
+  background: var(--colors-surface);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px var(--colors-shadow);
+  transition: transform 0.3s ease;
+}
+
+.timeline-content:hover {
+  transform: translateY(-5px);
+}
+
+.timeline-company {
+  color: var(--colors-text-primary);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-role {
+  color: var(--colors-primary);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-date {
+  color: var(--colors-text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-location {
+  color: var(--colors-text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.timeline-achievements {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.timeline-achievements li {
+  color: var(--colors-text-primary);
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.timeline-achievements li::before {
+  content: '•';
+  color: var(--colors-primary);
+  position: absolute;
+  left: 0;
+}
+
+.timeline-achievements .impact {
+  color: var(--colors-text-secondary);
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 0;
+  }
+  
+  .timeline-item {
+    width: 100%;
+    padding-left: 2.5rem;
+    padding-right: 0;
+  }
+  
+  .timeline-item:nth-child(even) {
+    padding-left: 2.5rem;
+  }
+  
+  .timeline-dot {
+    left: -6px;
+    right: auto;
+  }
+  
+  .timeline-item:nth-child(even) .timeline-dot {
+    left: -6px;
+  }
+} 
