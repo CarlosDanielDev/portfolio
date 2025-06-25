@@ -13,9 +13,14 @@ Available commands:
   ls - List all companies
   cd <company_name> - Select a company
   skills - Show skills for the current company
+  privacy - Show BlockZero privacy policy overview
+  privacy <section> - View specific privacy policy section
   clear - Clear the terminal
   about - About me
   contact - Contact information
+
+Privacy sections: overview, data-collection, permissions, monetization,
+online-features, user-rights, security, childrens-privacy, data-lifecycle, contact
 `.trim();
   }
 }

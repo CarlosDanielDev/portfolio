@@ -24,11 +24,11 @@ describe("ContactCommandHandler", () => {
     it("should create a contact", () => {
       const contact = new ContactCommandHandler();
       expect(contact).toBeDefined();
-      expect(contact.handle()).toBeDefined();
       const commandContact = mock.createContact();
+      expect(contact.handle(commandContact)).toBeDefined();
       const canHandleContact = contact.canHandle(commandContact);
       expect(canHandleContact).toBe(true);
-      const result = contact.handle();
+      const result = contact.handle(commandContact);
       expect(typeof result).toBe("string");
       expect(result).toContain("Email: carlosdanielsodev@gmail.com");
     });
