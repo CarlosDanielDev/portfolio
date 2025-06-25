@@ -1,15 +1,19 @@
 import { useState, useRef, useEffect, useMemo } from 'react';
 import { usePortfolio } from '@presentation/contexts/PortfolioContext';
+import { usePrivacyPolicy } from '@presentation/hooks/usePrivacyPolicy';
 import { Command } from '@domain/value-objects/Command';
 import { TerminalLine } from '@domain/value-objects/TerminalLine';
 import { TerminalHistory } from '@domain/entities/TerminalHistory';
 import { CommandProcessor } from '@application/commands/CommandProcessor';
+import type { CommandHandler } from '@application/commands/CommandHandler';
 import { HelpCommandHandler } from '@application/commands/handlers/HelpCommandHandler';
 import { ListCompaniesCommandHandler } from '@application/commands/handlers/ListCompaniesCommandHandler';
 import { ChangeCompanyCommandHandler } from '@application/commands/handlers/ChangeCompanyCommandHandler';
 import { SkillsCommandHandler } from '@application/commands/handlers/SkillsCommandHandler';
 import { AboutCommandHandler } from '@application/commands/handlers/AboutCommandHandler';
 import { ContactCommandHandler } from '@application/commands/handlers/ContactCommandHandler';
+import { PrivacyCommandHandler } from '@application/commands/handlers/PrivacyCommandHandler';
+import { PrivacySectionCommandHandler } from '@application/commands/handlers/PrivacySectionCommandHandler';
 import { DependencyConfig } from '@infrastructure/config/DependencyConfig';
 import { TerminalHeader } from './TerminalHeader';
 import { TerminalLineView } from './TerminalLineView';
@@ -18,6 +22,7 @@ import './Terminal.css';
 
 export function Terminal() {
   const { companies, selectedCompany, selectCompany } = usePortfolio();
+  const { privacyPolicy } = usePrivacyPolicy();
   const [input, setInput] = useState('');
   const [ghostText, setGhostText] = useState('');
   const [history, setHistory] = useState(
@@ -30,14 +35,26 @@ export function Terminal() {
   const inputRef = useRef<HTMLInputElement>(null);
   const terminalContentRef = useRef<HTMLDivElement>(null);
   
-  const commandProcessor = useMemo(() => new CommandProcessor([
-    new HelpCommandHandler(),
-    new ListCompaniesCommandHandler(companies),
-    new ChangeCompanyCommandHandler(companies, selectCompany),
-    new SkillsCommandHandler(selectedCompany),
-    new AboutCommandHandler(),
-    new ContactCommandHandler()
-  ]), [companies, selectedCompany, selectCompany]);
+  const commandProcessor = useMemo(() => {
+    const handlers: CommandHandler[] = [
+      new HelpCommandHandler(),
+      new ListCompaniesCommandHandler(companies),
+      new ChangeCompanyCommandHandler(companies, selectCompany),
+      new SkillsCommandHandler(selectedCompany),
+      new AboutCommandHandler(),
+      new ContactCommandHandler()
+    ];
+
+    // Add privacy policy handlers if data is loaded
+    if (privacyPolicy) {
+      handlers.push(
+        new PrivacySectionCommandHandler(privacyPolicy),
+        new PrivacyCommandHandler(privacyPolicy)
+      );
+    }
+
+    return new CommandProcessor(handlers);
+  }, [companies, selectedCompany, selectCompany, privacyPolicy]);
 
   useEffect(() => {
     if (terminalContentRef.current) {

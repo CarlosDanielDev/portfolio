@@ -1,13 +1,16 @@
 import { InMemoryCompanyRepository } from '@infrastructure/repositories/InMemoryCompanyRepository';
 import { InMemorySkillRepository } from '@infrastructure/repositories/InMemorySkillRepository';
 import { InMemoryCompanySkillRepository } from '@infrastructure/repositories/InMemoryCompanySkillRepository';
+import { InMemoryPrivacyPolicyRepository } from '@infrastructure/repositories/InMemoryPrivacyPolicyRepository';
 import { DataInitializationService } from '@infrastructure/services/DataInitializationService';
 import { ListAllCompaniesUseCase } from '@application/use-cases/ListAllCompaniesUseCase';
 import { ListCompanySkillsUseCase } from '@application/use-cases/ListCompanySkillsUseCase';
 import { TabCompletionUseCase } from '@application/use-cases/TabCompletionUseCase';
+import { GetPrivacyPolicyUseCase } from '@application/use-cases/GetPrivacyPolicyUseCase';
 import { InMemoryProjectStatisticsRepository } from '@infrastructure/repositories/InMemoryProjectStatisticsRepository';
 import { GetProjectStatisticsUseCase } from '@application/use-cases/GetProjectStatisticsUseCase';
 import type { ProjectStatisticsRepository } from '@domain/repositories/ProjectStatisticsRepository';
+import type { PrivacyPolicyRepository } from '@domain/repositories/PrivacyPolicyRepository';
 
 class DependencyConfig {
   private static instance: DependencyConfig;
@@ -22,6 +25,8 @@ class DependencyConfig {
   private listAllCompaniesUseCase: ListAllCompaniesUseCase | null = null;
   private listCompanySkillsUseCase: ListCompanySkillsUseCase | null = null;
   private tabCompletionUseCase: TabCompletionUseCase | null = null;
+  private privacyPolicyRepository: PrivacyPolicyRepository | null = null;
+  private privacyPolicyUseCase: GetPrivacyPolicyUseCase | null = null;
   
   private constructor() {
     this.companyRepository = new InMemoryCompanyRepository();
@@ -84,6 +89,21 @@ class DependencyConfig {
       this.projectStatisticsUseCase = new GetProjectStatisticsUseCase(repository);
     }
     return this.projectStatisticsUseCase;
+  }
+
+  getPrivacyPolicyRepository(): PrivacyPolicyRepository {
+    if (!this.privacyPolicyRepository) {
+      this.privacyPolicyRepository = new InMemoryPrivacyPolicyRepository();
+    }
+    return this.privacyPolicyRepository;
+  }
+
+  getPrivacyPolicyUseCase(): GetPrivacyPolicyUseCase {
+    if (!this.privacyPolicyUseCase) {
+      const repository = this.getPrivacyPolicyRepository();
+      this.privacyPolicyUseCase = new GetPrivacyPolicyUseCase(repository);
+    }
+    return this.privacyPolicyUseCase;
   }
 }
 

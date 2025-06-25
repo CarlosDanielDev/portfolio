@@ -6,7 +6,8 @@ class ContactCommandHandler implements CommandHandler {
     return command.isCommand('contact');
   }
   
-  handle(): string {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  handle(_command: Command): string {
     const email = typeof import.meta.env !== 'undefined' 
       ? (import.meta.env.VITE_APP_EMAIL ?? 'carlosdanielsodev@gmail.com')
       : 'carlosdanielsodev@gmail.com';
