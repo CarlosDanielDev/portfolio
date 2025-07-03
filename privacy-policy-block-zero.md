@@ -2,7 +2,7 @@
 
 ## 📋 Overview
 
-This document contains comprehensive information about the BlockZero mobile application to assist in creating a compliant privacy policy page. BlockZero is a modern 2048-style puzzle game with multiple game modes, in-app purchases, and advertising integration.
+This document contains comprehensive information about the BlockZero mobile application to assist in creating a compliant privacy policy page. BlockZero is a modern 2048-style puzzle game with subscription-based monetization, multiple game modes, and advertising integration for free users.
 
 ---
 
@@ -35,23 +35,25 @@ BlockZero stores the following data locally on the user's device:
 
 #### Game State Data
 - **Current game progress**: Board state, score, current goal
-- **Game mode preferences**: Classic, Competitive, Timed
+- **Game mode preferences**: Classic, Challenge, Time Attack, Reverse Mode
 - **Move count and session tracking**: Number of moves per game
-- **Undo system data**: Available undos, usage tracking
+- **Undo system data**: Available undos, usage tracking (tier-specific)
 - **Milestone progression**: Achievement levels and checkpoints
-- **Game statistics**: Personal best scores, play time
+- **Game statistics**: Personal best scores, play time, mode-specific stats
 
 #### User Preferences
-- **Theme selection**: Active visual theme
+- **Theme selection**: Active visual theme (tier-restricted)
 - **Numbering system preferences**: Display format preferences
 - **Privacy settings**: User consent preferences
 - **App configuration**: User interface customizations
+- **Subscription preferences**: Pro feature settings
 
-#### Purchase Data (Encrypted)
-- **Purchase history**: In-app purchase records
-- **Undo balance**: Available undos from purchases
-- **Premium theme ownership**: Purchased theme entitlements
-- **Receipt validation data**: Purchase verification records
+#### Subscription Data (Encrypted)
+- **Subscription status**: Active, trial, expired, cancelled
+- **Subscription type**: Monthly or yearly Pro subscription
+- **Subscription metadata**: Purchase date, expiration date, renewal status
+- **Entitlements**: Feature access permissions
+- **RevenueCat customer ID**: Anonymous user identifier for subscription management
 
 ### Privacy Compliance Implementation
 - **GDPR Compliance**: Full GDPR compliance system implemented
@@ -65,13 +67,15 @@ BlockZero stores the following data locally on the user's device:
 ## 🔐 Permissions & Device Access
 
 ### iOS Entitlements
-- **In-App Payments**: `com.apple.developer.in-app-payments`
-  - Merchant ID: `merchant.dev.carlosdaniel.blockzero`
+- **In-App Purchases**: `com.apple.developer.in-app-payments`
+  - Purpose: Subscription management (Pro monthly/yearly)
 - **Game Center**: Social gaming integration (optional)
 
 ### Android Permissions
 - **Internet Access**: `android.permission.INTERNET`
-  - Purpose: Advertisement loading, competitive mode features
+  - Purpose: Advertisement loading, subscription management, competitive mode features
+- **Billing**: `com.android.vending.BILLING`
+  - Purpose: Google Play subscription management
 
 ### iOS Privacy APIs Used
 - **System Boot Time**: Performance monitoring (35F9.1)
@@ -81,74 +85,121 @@ BlockZero stores the following data locally on the user's device:
 
 ---
 
-## 💰 Monetization & Third-Party Services
+## 💰 Subscription & Monetization Services
 
-### In-App Purchases (Apple Pay Integration)
-- **Product Types**: Consumable purchases only
-- **Undo Products**:
-  - Single Undo: $0.99 USD
-  - Undo Pack (5): $2.99 USD
-- **Receipt Validation**: Local validation with App Store
-- **Purchase Data**: Transaction IDs, receipts, purchase dates
-- **Data Retention**: Purchase history for restore functionality
+### RevenueCat Integration
+- **Service Provider**: RevenueCat (https://www.revenuecat.com/)
+- **Purpose**: Subscription management and analytics
+- **Data Shared**: Anonymous user identifier, subscription events, platform information
+- **Privacy Policy**: https://www.revenuecat.com/privacy
+- **Data Processing**: RevenueCat processes subscription data on our behalf
 
-### Google Mobile Ads Integration
+### Subscription Products
+- **Monthly Pro Subscription**: 
+  - Product ID: `dev.carlosdaniel.blockzero.pro.month`
+  - Price: $4.99 USD per month
+  - Features: No ads, unlimited undos, all game modes, premium themes
+  - Auto-renewal: Yes
+  - Free trial: 7 days
+
+- **Yearly Pro Subscription**: 
+  - Product ID: `dev.carlosdaniel.blockzero.pro.year`
+  - Price: $39.99 USD per year
+  - Features: No ads, unlimited undos, all game modes, premium themes
+  - Auto-renewal: Yes
+  - Free trial: 7 days
+  - Savings: 33% vs monthly subscription
+
+### Subscription Data Processing
+- **Purchase Validation**: Secure receipt validation through RevenueCat
+- **Subscription Status**: Real-time subscription status monitoring
+- **Analytics**: Anonymous subscription performance analytics
+- **Cross-Platform Sync**: Subscription access across iOS and Android
+
+### Google Mobile Ads Integration (Free Users Only)
 - **SDK**: `react-native-google-mobile-ads` version 15.4.0
-- **Ad Types**: Banner advertisements only
+- **Ad Types**: Banner advertisements, interstitial ads, rewarded video ads
 - **iOS App ID**: `ca-app-pub-8636863724055857~3938317331`
-- **Android App ID**: `ca-app-pub-xxxxxxxx~xxxxxxxx` (placeholder)
+- **Android App ID**: `ca-app-pub-8636863724055857~3938317332`
 - **Ad Personalization**: Subject to user privacy settings
 - **Data Sharing**: Anonymous gameplay analytics for ad optimization
+- **Pro Users**: No advertisements shown for Pro subscribers
 
 ### Third-Party Dependencies
 - **AsyncStorage**: Local data persistence
-- **React Native IAP**: In-app purchase processing
-- **Google Mobile Ads**: Advertisement serving
+- **RevenueCat**: Subscription management and analytics
+- **Google Mobile Ads**: Advertisement serving (free users only)
 - **React Native Keychain**: Secure data storage (iOS)
 
 ---
 
 ## 🌐 Online Features & Data Transmission
 
-### Competitive Mode Features
-- **Online Leaderboards**: Anonymous score submission
-- **Global Rankings**: Comparative performance data
-- **Achievement System**: Progress tracking and badges
+### Pro-Only Online Features
+- **Challenge Mode**: Online leaderboards and global rankings
+- **Achievement System**: Cross-platform achievement tracking
+- **Subscription Sync**: Real-time subscription status across devices
 
 ### Network Communications
-- **Ad Loading**: Requests to Google Ad servers
-- **Purchase Validation**: Communication with App Store/Play Store
+- **Ad Loading**: Requests to Google Ad servers (free users only)
+- **Subscription Management**: Communication with RevenueCat services
+- **Purchase Validation**: Secure validation with App Store/Play Store
 - **Analytics**: Anonymous usage statistics (opt-in)
 
 ### Data Transmitted
-- **Purchase receipts**: For validation purposes only
-- **Anonymous game statistics**: Score, level progression
+- **Subscription receipts**: For validation purposes only
+- **Anonymous game statistics**: Score, level progression, mode usage
 - **Device information**: OS version, app version for compatibility
+- **RevenueCat anonymous ID**: For subscription management
 - **No personal identifiers**: Email addresses, names, or contacts
+
+---
+
+## 🎮 Game Mode Data Collection
+
+### Free Tier Data Collection
+- **Classic Mode**: Game state, scores, preferences
+- **Usage Analytics**: Feature usage, upgrade prompt interactions
+- **Ad Interaction**: Ad impression and click data (anonymous)
+- **Conversion Tracking**: Anonymous funnel analysis for subscription conversion
+
+### Pro Tier Data Collection
+- **All Game Modes**: Enhanced gameplay data for Pro features
+- **Feature Usage**: Premium feature utilization
+- **Subscription Analytics**: Anonymous subscription satisfaction metrics
+- **No Ad Data**: No advertisement interaction data for Pro users
+
+### Mode-Specific Data
+- **Challenge Mode**: Leaderboard scores, rankings (Pro only)
+- **Time Attack**: Best times, speed metrics (Pro only)
+- **Reverse Mode**: Completion rates, unique gameplay patterns (Pro only)
+- **Theme Usage**: Premium theme preferences (Pro only)
 
 ---
 
 ## 👤 User Rights & Data Control
 
 ### GDPR Rights Implementation
-- **Right to Access**: Export all user data
-- **Right to Rectification**: Modify stored preferences
-- **Right to Erasure**: Delete all user data
+- **Right to Access**: Export all user data including subscription information
+- **Right to Rectification**: Modify stored preferences and settings
+- **Right to Erasure**: Delete all user data including subscription history
 - **Right to Portability**: Export data in JSON format
-- **Right to Restrict Processing**: Opt-out of analytics
-- **Right to Object**: Disable data collection
+- **Right to Restrict Processing**: Opt-out of analytics and ad personalization
+- **Right to Object**: Disable data collection while maintaining core functionality
 
 ### CCPA Rights Implementation
-- **Right to Know**: Full disclosure of data collection
-- **Right to Delete**: Complete data deletion
-- **Right to Opt-Out**: Stop data processing
+- **Right to Know**: Full disclosure of data collection including subscription data
+- **Right to Delete**: Complete data deletion including RevenueCat data
+- **Right to Opt-Out**: Stop non-essential data processing
 - **Non-Discrimination**: Full app functionality without data sharing
 
 ### User Controls Available
 - **Privacy Settings Menu**: In-app privacy control panel
+- **Subscription Management**: Easy subscription cancellation and management
 - **Data Export Feature**: Complete user data download
 - **Data Deletion**: One-click data removal
-- **Consent Management**: Granual permission controls
+- **Consent Management**: Granular permission controls
+- **Ad Personalization**: Control over ad targeting (free users)
 
 ---
 
@@ -157,20 +208,23 @@ BlockZero stores the following data locally on the user's device:
 ### Data Security Measures
 - **Local Encryption**: Sensitive data encrypted at rest
 - **Secure Communication**: HTTPS for all network requests
-- **Purchase Security**: Receipt validation and fraud prevention
+- **Subscription Security**: Secure receipt validation and fraud prevention
+- **RevenueCat Security**: Industry-standard subscription data protection
 - **Anti-Cheat Systems**: Game integrity protection
 
 ### Data Minimization
-- **Necessary Data Only**: Only collect essential game data
+- **Necessary Data Only**: Only collect essential game and subscription data
 - **Anonymous Analytics**: No personally identifiable information
 - **Temporary Storage**: Cache cleared on app closure
 - **Automatic Cleanup**: Old data automatically removed
+- **Subscription Data Limits**: Only essential subscription information stored
 
 ### Data Breach Response
 - **Detection Systems**: Automated security monitoring
 - **Response Protocol**: 72-hour notification requirement
 - **User Notification**: Direct user communication plan
 - **Data Recovery**: Backup and recovery procedures
+- **RevenueCat Partnership**: Coordinated response for subscription data
 
 ---
 
@@ -181,12 +235,37 @@ BlockZero stores the following data locally on the user's device:
 - **No Personal Data Collection**: No child-specific data gathered
 - **Parental Controls**: Game suitable without additional controls
 - **Educational Value**: Cognitive puzzle-solving benefits
+- **Subscription Clarity**: Clear subscription information for parents
 
 ### COPPA Compliance
 - **No Personal Information**: No names, addresses, or contact info
 - **No Behavioral Tracking**: No cross-app usage monitoring
 - **Safe Gaming Environment**: No social features or chat
-- **Transparent Purchases**: Clear in-app purchase information
+- **Transparent Subscriptions**: Clear subscription and billing information
+- **Parental Purchase Controls**: Platform-level parental controls supported
+
+---
+
+## 📊 Analytics & Performance Data
+
+### Anonymous Analytics Collection
+- **Game Performance**: Frame rates, loading times, crash reports
+- **Feature Usage**: Anonymous usage of game modes and features
+- **Subscription Funnel**: Anonymous conversion tracking
+- **User Engagement**: Session length, retention rates
+- **Platform Performance**: Device compatibility and performance metrics
+
+### Analytics Providers
+- **RevenueCat Analytics**: Subscription performance and conversion metrics
+- **Google Analytics**: Anonymous app usage analytics (opt-in)
+- **Custom Analytics**: Internal performance monitoring
+- **Crash Reporting**: Anonymous crash and error reporting
+
+### Data Usage
+- **Product Improvement**: Feature development and optimization
+- **Performance Optimization**: App speed and stability improvements
+- **Subscription Optimization**: Anonymous A/B testing for subscription flow
+- **Bug Fixing**: Anonymous error tracking and resolution
 
 ---
 
@@ -195,173 +274,108 @@ BlockZero stores the following data locally on the user's device:
 ### Data Processing Locations
 - **Primary Storage**: User's device (local storage)
 - **Cloud Services**: Apple iCloud (iOS), Google Play Services (Android)
-- **Ad Servers**: Google Ad network (global CDN)
+- **RevenueCat**: US-based subscription processing with global infrastructure
+- **Ad Servers**: Google Ad network (global CDN) - free users only
 - **Analytics**: Anonymous data processing (US/EU servers)
 
-### Legal Frameworks
-- **GDPR**: European Union data protection
-- **CCPA**: California Consumer Privacy Act
-- **PIPEDA**: Canadian privacy law
-- **App Store Guidelines**: Platform-specific requirements
+### Regional Compliance
+- **GDPR (EU)**: Full compliance with European privacy regulations
+- **CCPA (California)**: California Consumer Privacy Act compliance
+- **COPPA (US)**: Children's Online Privacy Protection Act compliance
+- **App Store Guidelines**: Apple App Store privacy requirements
+- **Google Play Policy**: Google Play privacy and subscription policies
 
-### International Transfers
-- **Minimal Cross-Border Data**: Most data stays on device
-- **Standard Contractual Clauses**: For necessary transfers
-- **Adequacy Decisions**: Compliance with regional requirements
-
----
-
-## 🔄 Data Lifecycle Management
-
-### Data Collection
-- **Collection Purpose**: Game functionality and user experience
-- **Legal Basis**: User consent and legitimate interest
-- **Collection Method**: Direct user interaction with app
-- **Data Categories**: Game progress, preferences, purchase history
-
-### Data Processing
-- **Processing Activities**: Game state management, purchase processing
-- **Automated Decision Making**: None implemented
-- **Profiling**: No user profiling performed
-- **Data Analytics**: Anonymous usage statistics only
-
-### Data Retention
-- **Game Data**: Retained while app is installed
-- **Purchase Data**: 7 years (tax/accounting requirements)
-- **Privacy Logs**: 3 years (compliance audit trail)
-- **Temporary Data**: Cleared on app closure/restart
-
-### Data Deletion
-- **User-Initiated**: Immediate deletion via settings
-- **Automatic Cleanup**: Expired data automatically removed
-- **Account Closure**: Complete data removal within 30 days
-- **Technical Deletion**: Secure data wiping procedures
+### Subscription Legal Requirements
+- **Auto-Renewal Disclosure**: Clear auto-renewal terms and conditions
+- **Cancellation Rights**: Easy cancellation process with clear instructions
+- **Billing Transparency**: Clear pricing and billing cycle information
+- **Regional Pricing**: Localized pricing and tax handling
+- **Refund Policy**: Clear refund terms and process
 
 ---
 
-## 📱 Platform-Specific Considerations
+## 🔄 Data Retention & Deletion
 
-### iOS Privacy Features
-- **App Tracking Transparency**: User consent for tracking
-- **Privacy Nutrition Labels**: App Store privacy summary
-- **Data Privacy Report**: iOS system privacy reporting
-- **Limited Ad Tracking**: Respect user LAT settings
+### Data Retention Periods
+- **Game Data**: 3 years from last app usage
+- **Subscription Data**: 7 years as required by financial regulations
+- **Analytics Data**: 2 years for performance analysis
+- **Crash Reports**: 1 year for stability improvements
+- **User Preferences**: Retained until user deletion request
 
-### Android Privacy Features
-- **Privacy Dashboard**: System-level privacy monitoring
-- **Permission Manager**: Granular permission control
-- **Data Safety**: Play Store privacy disclosure
-- **Privacy Indicators**: Microphone/camera usage indicators
+### Data Deletion Process
+- **User-Initiated**: Immediate deletion via in-app settings
+- **Account Deletion**: Complete data removal including subscription history
+- **RevenueCat Coordination**: Coordinated deletion with subscription provider
+- **Backup Removal**: Deletion from all backup systems
+- **Verification**: Confirmation of complete data removal
 
----
-
-## 🎮 Game-Specific Data
-
-### Game Modes
-- **Classic Mode**: Offline, personal progress only
-- **Competitive Mode**: Anonymous leaderboards, no personal data
-- **Timed Mode**: Local scoring, no data transmission
-
-### Milestone System
-- **Achievement Tracking**: Local progress milestones
-- **Checkpoint System**: Game state snapshots (local storage)
-- **Level Progression**: Experience points and level calculation
-
-### Undo System
-- **Usage Tracking**: Undo count per game mode
-- **Purchase Integration**: Premium undo availability
-- **Anti-Cheat Measures**: Session-based undo limitations
+### Subscription Data Handling
+- **Active Subscriptions**: Data retained for service delivery
+- **Cancelled Subscriptions**: Historical data retained for customer support
+- **Expired Subscriptions**: Data archived according to legal requirements
+- **Refunded Subscriptions**: Transaction data retained for financial compliance
 
 ---
 
-## 📈 Analytics & Performance
+## 📱 Platform-Specific Privacy Information
 
-### Performance Monitoring
-- **App Performance**: Crash reporting, performance metrics
-- **Game Analytics**: Anonymous gameplay statistics
-- **User Experience**: Interface interaction patterns
-- **Technical Metrics**: Loading times, error rates
+### iOS Privacy Requirements
+- **App Store Privacy Labels**: Accurate data collection disclosure
+- **ATT (iOS 14.5+)**: App Tracking Transparency compliance
+- **Privacy Manifests**: Detailed privacy API usage disclosure
+- **Family Sharing**: Subscription sharing privacy considerations
 
-### Anonymous Data Collection
-- **Device Specifications**: OS version, device model
-- **App Usage**: Session length, feature usage
-- **Game Performance**: Score distributions, completion rates
-- **Error Reporting**: Crash logs and bug reports
-
----
-
-## 🎨 Customization & Themes
-
-### Visual Themes
-- **Theme Selection**: User preference storage
-- **Premium Themes**: Purchase-gated visual content
-- **Theme Assets**: Locally stored visual resources
-
-### Numbering Systems
-- **Display Preferences**: Number format customization
-- **Cultural Adaptation**: Multiple numbering system support
+### Android Privacy Requirements
+- **Data Safety**: Google Play data safety form compliance
+- **Advertising ID**: Proper handling of Android advertising identifier
+- **Permissions**: Minimal permission requests with clear justification
+- **Data Sharing**: Transparent third-party data sharing disclosure
 
 ---
 
-## 📧 Communication & Updates
+## 🎯 Subscription-Specific Privacy Considerations
 
-### Privacy Policy Updates
-- **Notification Method**: In-app notification system
-- **Update Frequency**: As needed for feature changes
-- **Version Control**: Dated privacy policy versions
-- **User Consent**: Re-consent for material changes
+### Subscription Privacy Features
+- **Anonymous Subscriptions**: No personal information required beyond platform requirements
+- **Cross-Platform Privacy**: Consistent privacy protection across iOS and Android
+- **Subscription Analytics**: Anonymous subscription performance tracking
+- **Revenue Optimization**: Anonymous A/B testing for subscription experience
 
-### User Communication
-- **Support Requests**: Direct email communication
-- **Privacy Inquiries**: Dedicated privacy contact
-- **Data Requests**: Formal data request processing
-- **Incident Notification**: Security breach communication
+### Pro User Privacy Benefits
+- **Ad-Free Experience**: No advertisement tracking or data collection
+- **Enhanced Privacy**: Reduced data collection compared to free users
+- **Subscription Security**: Industry-standard payment processing security
+- **Privacy Priority**: Premium users receive enhanced privacy protection
 
----
-
-## ⚖️ Legal Compliance Summary
-
-### Required Disclosures
-- **Data Collection**: What data is collected and why
-- **Data Usage**: How collected data is processed
-- **Data Sharing**: Limited third-party sharing (ads only)
-- **User Rights**: Complete user control information
-- **Contact Information**: Clear privacy contact details
-
-### Regulatory Compliance
-- **GDPR Article 13/14**: Information provision requirements
-- **CCPA Section 1798.100**: Consumer right to know
-- **COPPA Rule**: Children's online privacy protection
-- **Platform Guidelines**: Apple App Store and Google Play policies
+### Free User Privacy Considerations
+- **Advertisement Data**: Anonymous ad interaction tracking
+- **Conversion Tracking**: Anonymous funnel analysis for subscription conversion
+- **Limited Data Collection**: Minimal data collection for essential functionality
+- **Upgrade Privacy**: Clear privacy benefits communicated for Pro subscription
 
 ---
 
-## 🔍 Additional Notes for Privacy Policy Creation
+## 📧 Privacy Contact Information
 
-### Key Privacy Principles
-1. **Transparency**: Clear, understandable language
-2. **User Control**: Comprehensive user choice options
-3. **Data Minimization**: Only necessary data collection
-4. **Security First**: Robust protection measures
-5. **Compliance**: Full regulatory adherence
+### Data Protection Officer
+- **Contact**: `privacy@blockzero.com`
+- **Purpose**: Privacy inquiries, data requests, compliance questions
+- **Response Time**: 72 hours for initial response
+- **Languages**: English, Spanish, Portuguese
 
-### Recommended Privacy Policy Sections
-1. Information We Collect
-2. How We Use Information
-3. Information Sharing and Disclosure
-4. Data Security
-5. Your Privacy Rights
-6. Children's Privacy
-7. International Transfers
-8. Changes to Privacy Policy
-9. Contact Information
+### Customer Support
+- **General Support**: `support@blockzero.com`
+- **Subscription Support**: `billing@blockzero.com`
+- **Technical Issues**: `tech@blockzero.com`
+- **Response Time**: 24 hours for customer inquiries
 
-### Important Legal Disclaimers
-- This app is designed with privacy-by-design principles
-- Most data processing occurs locally on user devices
-- Minimal personal data collection with explicit user consent
-- Comprehensive user rights implementation with easy access controls
+### Legal and Compliance
+- **Legal Inquiries**: `legal@blockzero.com`
+- **Data Breach Reporting**: `security@blockzero.com`
+- **Regulatory Compliance**: `compliance@blockzero.com`
+- **Emergency Contact**: 24/7 response for critical privacy issues
 
 ---
 
-*This document provides comprehensive information for creating a GDPR, CCPA, and COPPA compliant privacy policy for BlockZero. For specific legal advice, consult with a privacy law attorney familiar with mobile app regulations.* 
+**IMPORTANT**: This privacy policy information reflects BlockZero's commitment to user privacy and transparent data practices. Our subscription model is designed to provide enhanced privacy benefits to Pro users while maintaining strict privacy standards for all users. 
